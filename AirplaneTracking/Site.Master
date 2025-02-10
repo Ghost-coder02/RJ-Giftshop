@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="AirplaneTracking.Site" %>
+
+<%@ Register Src="~/sidebar2.ascx" TagPrefix="uc1" TagName="sidebar2" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <uc1:sidebar2 runat="server" id="sidebar2" />
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+            footer
+        </div>
+    </form>
+</body>
+</html>

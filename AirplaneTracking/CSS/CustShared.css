@@ -1,0 +1,2100 @@
+﻿/* Importing Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Lora", serif;
+    list-style: none;
+    text-decoration: none;
+    /*overflow-x: hidden;*/
+}
+
+
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ede8e1;
+    /*overflow-x:hidden;*/
+}
+
+
+
+
+/*********************************************** Header CSS ******************************************/
+
+
+.Header {
+    position: fixed;
+    display: flex; /* flex allows you to create a flexible and responsive layout */
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    justify-content: space-between; /* Space out children elements */
+    align-items: center; /* Center items vertically */
+    padding: 20px 10px;
+    height: 100px;
+}
+
+.Logo {
+    text-align: center;
+    width: 90px;
+    height: 150px;
+    position: relative;
+    top: 0;
+    background: linear-gradient(to Top,#7f1d1d, #dc2626);
+    text-align: center;
+    left: 20px;
+}
+
+
+    .Logo img {
+        width: 100px;
+        height: 120px;
+        position: absolute;
+        padding: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+
+
+
+
+/* Styling for the search box container */
+.SearchBox {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 50px;
+    margin: 30px 0;
+}
+
+    .SearchBox:focus {
+        border-color: red; /* Change border color on focus */
+        outline: none; /* Remove default outline */
+    }
+
+
+
+
+/* Styling for the input field */
+.SearchField {
+    width: 80%;
+    height: 100%;
+    background: transparent;
+    /******************/
+    border: 2px solid white;
+    border-radius: 40px;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px 10px 45px; /* Add padding to the left to make space for the icon */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    margin-left: 120px;
+}
+
+    /* Placeholder styling */
+    .SearchField::placeholder {
+        color: white;
+        opacity: 0.7;
+    }
+
+
+
+/* Styling for the search icon */
+#SearchIcon {
+    position: absolute; /* to position the icon include the search box */
+    left: 10px; /* Position icon inside the input field */
+    top: 50%;
+    transform: translateY(-50%);
+    height: 10px;
+    width: 0px;
+    color: red;
+    margin-left: 120px;
+}
+
+
+
+
+
+.ProfileCart {
+    display: flex;
+    align-items: center; /* Vertically center align items if needed */
+    justify-content: space-between; /* Adjusts spacing between items */
+}
+
+.CartIcon {
+    position: relative;
+    padding: 0;
+}
+
+.ProfileCart .CartIcon #HeaderControl_btnCartIcon {
+    margin-right: 30px;
+    color: white;
+    font-size: 30px;
+    font-weight: 400;
+    transition: all .42s ease;
+}
+
+
+    .ProfileCart .CartIcon #HeaderControl_btnCartIcon:hover {
+        color: #e03e3e;
+        transition: all .30s ease;
+    }
+
+.CartIcon .TotalQuantity {
+    position: absolute;
+    top: 0;
+    /*right: 0;*/
+    font-size: x-small;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    transform: translate(20%);
+}
+
+#HeaderControl_Login {
+    display: flex; /* Align icon and text horizontally */
+    align-items: center; /* Vertically center the icon and text */
+    text-decoration: none; /* Remove underline if needed */
+    /*color: white;*/
+    color: white;
+    gap: 10px;
+    font-size: 23px;
+    margin-right: 10px;
+}
+
+    /*#HeaderControl_Login class {
+        margin-right: 10px; 
+    }
+
+    #HeaderControl_Login i {
+        margin-right: 0;   
+    }*/
+
+    #HeaderControl_Login:hover {
+        color: #e03e3e;
+        transition: all .30s ease;
+    }
+
+.Logout {
+    display: flex; /* Align icon and text horizontally */
+    align-items: center; /* Vertically center the icon and text */
+    text-decoration: none; /* Remove underline if needed */
+    /*color: white;*/
+    color: white;
+    gap: 10px;
+    font-size: 20px;
+}
+
+    .Logout:hover {
+        color: #e03e3e;
+        transition: all .30s ease;
+    }
+
+
+.OrderHistoryIcon #btnOrdersHistory {
+    margin-right: 30px;
+    color: white;
+    font-size: 20px;
+    transition: all .42s ease;
+}
+
+    .OrderHistoryIcon #btnOrdersHistory:hover {
+        color: #e03e3e;
+        transition: all .30s ease;
+    }
+
+
+/*****************************Cart*******************************/
+.Cart {
+    position: fixed;
+    display: grid;
+    grid-template-rows: 50px 1fr 70px;
+    gap: 20px;
+    top: 0;
+    right: -100%;
+    width: 450px;
+    height: 100vh;
+    color: white;
+    background-color: darkgray;
+    transition: right 1s;
+    z-index: 1000;
+}
+
+    .Cart.active {
+        right: 0;
+    }
+
+    .Cart h2 {
+        color: white;
+        padding: 20px;
+        text-align: center;
+        margin: 0;
+        border-bottom: 2px solid white;
+        padding-bottom: 40px;
+    }
+
+.CartItemWrapper {
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+
+
+.Cart .CartItem {
+    /*display: grid;
+        grid-template-rows: 50px 1fr 70px;*/
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.Cart img {
+    width: 25%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.Content {
+    gap: 50px;
+}
+
+    .Content .Name {
+        color: red;
+        font-weight: bold;
+    }
+
+
+/*.Content #CartProdsRepeater .Quantity {*/
+/*gap: 5px;*/
+/*display: flex;
+            justify-content: end;
+            align-items: center;
+        }*/
+
+.Quantity {
+    /*gap: 5px;*/
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+/*.Content #CartProdsRepeater .Quantity .QuantBox {
+                display: block;
+                width: 50px;
+                text-align: center;
+            }*/
+
+.QuantBox {
+    display: block;
+    width: 50px;
+    text-align: center;
+}
+
+.CartList {
+    padding: 20px;
+    overflow: auto;
+}
+
+
+/*.CartList::webkit-scrollbar{
+         width: 0;
+    }*/
+
+.Content .Quantity #Increase {
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+}
+
+
+.CartProdDelete {
+    width: 80px;
+    height: 40px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    margin-left: 20px;
+    border: 2px solid grey;
+}
+
+
+
+.CartFooter {
+    /*position: fixed;*/
+    display: flex;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 100px;
+    border-top: 2px solid white;
+    padding: 10px;
+    z-index: 2000;
+}
+
+    .CartFooter .btnClose {
+        width: 120px;
+        height: 40px;
+        background-color: #e03e3e;
+        color: white;
+        border-radius: 10px;
+        border: 2px solid grey;
+    }
+
+    .CartFooter .btnCheckout {
+        width: 120px;
+        height: 40px;
+        background-color: #e03e3e;
+        color: white;
+        border-radius: 10px;
+        border: 2px solid grey;
+    }
+
+        .CartFooter .btnCheckout:hover, .btnClose:hover, .CartProdDelete:hover {
+            background-color: white;
+            color: grey;
+        }
+
+
+
+
+
+/******************************Checkout********************************/
+.CheckoutContainer {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 420px;
+    /*border: 2px solid red;*/
+    box-shadow: 0 10px 20px #555;
+    border-radius: 20px;
+    background-color: lightgrey;
+    z-index: 1000000;
+}
+
+.CheckoutLayout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+    .CheckoutLayout .ConfirmCheckout {
+        position: relative;
+        background-color: grey;
+        border-radius: 20px;
+        padding: 40px;
+        color: white;
+        width: 300px;
+        justify-content: center;
+        align-content: center;
+    }
+
+
+    .CheckoutLayout .CheckoutList img {
+        height: 70px;
+    }
+
+    .CheckoutLayout .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /*justify-content: space-between;*/
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+
+.CheckoutList {
+    height: 300px;
+    overflow-y: scroll;
+}
+
+
+.CheckoutLayout .row div:nth-child(2) {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.btnConfirmCheckout {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: red;
+}
+
+    .btnConfirmCheckout:hover {
+        background-color: white;
+        color: grey;
+    }
+
+.ReturnCart h2 {
+    /*text-decoration: underline white;*/
+    padding: 20px 0;
+}
+
+.ReturnCart .CheckoutList .CheckoutItem img {
+    margin: 10px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+
+.ReturnCart .CheckoutItem {
+    display: grid;
+    grid-template-columns: 80px 1fr 50px 80px;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    /*box-shadow: 0 10px 20px #555;*/
+    border-radius: 20px;
+    background-color: white;
+}
+
+
+    .ReturnCart .CheckoutItem .Name {
+        font-size: medium;
+        /*font-weight:bold;*/
+    }
+
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* it should be under the checkout container*/
+    z-index: 100000;
+    visibility: hidden;
+}
+
+.TotalsAlign {
+    text-align: center;
+}
+
+
+.lblTotalItems {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.lblTotalitemsPrice {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+
+
+/******************************Order submitted*************************/
+.OrderSubmit {
+    display: none;
+}
+
+    .OrderSubmit.active {
+        background-color: lightgrey;
+        display: flex;
+        position: fixed;
+        width: 600px;
+        height: 120px;
+        background-color: white;
+        box-shadow: 0 10px 20px #555;
+        z-index: 100000;
+        gap: 20px;
+        padding: 7px;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+.lblOrderSubmit {
+    /*position: absolute;*/
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+.OrderSubmit img {
+    /*position: absolute;*/
+    width: 60px;
+    height: 60px;
+}
+
+
+
+/*****************************Orders History*******************************/
+
+.OrdersHistory {
+    position: fixed;
+    display: grid;
+    grid-template-rows: 50px 1fr 70px;
+    gap: 20px;
+    top: 0;
+    right: -100%;
+    /*right:0;*/
+    width: 450px;
+    height: 100vh;
+    color: white;
+    background-color: darkgray;
+    transition: right 1s;
+    z-index: 10000;
+}
+
+    .OrdersHistory.active {
+        right: 0;
+    }
+
+    .OrdersHistory h2 {
+        color: white;
+        padding: 20px;
+        text-align: center;
+        margin: 0;
+        border-bottom: 2px solid white;
+        padding-bottom: 40px;
+    }
+
+.OrdersWrapper {
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+
+
+.OrdersHistory .Order {
+    /*display: grid;
+        grid-template-rows: 50px 1fr 70px;*/
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.OrdersHistory img {
+    width: 25%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.Content {
+    gap: 50px;
+    line-height: 1.7;
+}
+
+    .Content .Name {
+        color: red;
+        font-weight: bold;
+    }
+
+
+
+
+.OrdersHistoryList {
+    padding: 20px;
+    overflow: auto;
+}
+
+
+
+.btnViewOrderDetails {
+    width: 80px;
+    height: 40px;
+    background-color: #e03e3e;
+    color: white;
+    border-radius: 10px;
+    margin-left: 20px;
+    border: 2px solid grey;
+}
+
+    .btnViewOrderDetails:hover {
+        color: grey;
+        background-color: white;
+    }
+
+
+.OrdersHistoryFooter {
+    /*position: fixed;*/
+    display: flex;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 100px;
+    border-top: 2px solid white;
+    padding: 10px;
+    z-index: 2000;
+}
+
+    .OrdersHistoryFooter .btnClose {
+        width: 120px;
+        height: 40px;
+        background-color: #e03e3e;
+        color: white;
+        border-radius: 10px;
+        border: 2px solid grey;
+    }
+
+        .OrdersHistoryFooter .btnClose:hover {
+            background-color: white;
+            color: grey;
+        }
+
+
+
+
+
+
+
+
+
+/******************************Order Details********************************/
+.OrderDetailsContainer {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 420px;
+    /*border: 2px solid red;*/
+    box-shadow: 0 10px 20px #555;
+    border-radius: 20px;
+    background-color: lightgrey;
+    z-index: 1000000;
+}
+
+.OrderDetailsLayout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+    .OrderDetailsLayout .ConfirmOrderDtails {
+        position: relative;
+        background-color: grey;
+        border-radius: 20px;
+        padding: 40px;
+        color: white;
+        width: 300px;
+        justify-content: center;
+        align-content: center;
+    }
+
+
+    .OrderDetailsLayout .OrderDetailsList img {
+        height: 70px;
+    }
+
+    .OrderDetailsLayout .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /*justify-content: space-between;*/
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+
+.OrderDetailsList {
+    height: 300px;
+    overflow-y: scroll;
+}
+
+
+.OrderDetailsLayout .row div:nth-child(2) {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+/*.btnConfirmCheckout {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: red;
+}
+
+    .btnConfirmCheckout:hover {
+        background-color: white;
+        color: grey;
+    }*/
+
+.ReturnOrder h2 {
+    /*text-decoration: underline white;*/
+    padding: 20px 0;
+}
+
+.ReturnOrder .OrderDetailsList .OrderItem img {
+    margin: 10px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+
+.ReturnOrder .OrderItem {
+    display: grid;
+    grid-template-columns: 80px 1fr 50px 80px;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    /*box-shadow: 0 10px 20px #555;*/
+    border-radius: 20px;
+    background-color: white;
+}
+
+
+    .ReturnOrder .OrderItem .Name {
+        font-size: medium;
+        /*font-weight:bold;*/
+    }
+
+
+.overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* it should be under the checkout container*/
+    z-index: 10000;
+}
+
+.TotalsAlign {
+    text-align: center;
+}
+
+
+.lblTotalOrderPrice {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.lblTotalOrderPrice {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+
+
+
+
+/***************************** Login Box ******************************/
+
+.whole {
+    width: 100%;
+    height: 100vh;
+    background-image: url('/Images/shop.jpg');
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: flex-start;
+}
+
+
+.Login2 {
+    width: 350px;
+    background: transparent;
+    border: 2px solid white;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 30px 40px;
+    opacity: 1;
+}
+
+    .Login2 h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+
+
+
+
+
+
+
+    .Login2 .InputBox {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin: 30px 0;
+    }
+
+
+        .Login2 .InputBox #Username, #Password {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            /*border: 2px solid RGBA(187,238,255, 0.2);
+            border-radius: 40px;*/
+            border-bottom: 2px solid white;
+            color: white;
+            font-size: 16px;
+            /* top, right, bottom, left*/
+            padding: 20px 45px 20px 45px;
+        }
+
+            #Username::placeholder, #Password::placeholder {
+                color: white;
+                opacity: 0.7;
+            }
+
+
+
+        .Login2 .InputBox i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20PX;
+            color: white;
+        }
+
+
+.LoginButton #Submit {
+    width: 70%;
+    height: 45px;
+    background: white;
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: slategray;
+    font-weight: 600;
+}
+
+    .LoginButton #Submit:hover {
+        color: white;
+        background-color: slategray;
+    }
+
+
+.RegisterLink {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+    .RegisterLink p a {
+        color: lightskyblue;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+        .RegisterLink p a:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+/**************************************************** Register Page *******************************/
+
+.whole {
+    width: 100%;
+    height: 100vh;
+    background-image: url('/Images/shop.jpg');
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: flex-start;
+}
+
+
+.RegisterContainer {
+    width: 520px;
+    background: transparent;
+    border: 2px solid white;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 30px 20px;
+    opacity: 1;
+}
+
+    .RegisterContainer h2 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+
+
+
+.RegInfo {
+    overflow-y: scroll; /* Enable vertical scrolling */
+    overflow-x: hidden;
+    max-height: 500px;
+    padding-right: 10px;
+    max-width: 520px;
+}
+
+
+.RegisterContainer .Name {
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin: 30px 0;
+    gap: 30px;
+    justify-content: center;
+}
+
+    .RegisterContainer .Name #FName, .Name #LName {
+        width: 40%;
+        height: 40%;
+        background: transparent;
+        border: none;
+        outline: none;
+        /*border: 2px solid RGBA(187,238,255, 0.2);*/
+        border-bottom: 2px solid white;
+        color: white;
+        font-size: 16px;
+        /* top, right, bottom, left*/
+        padding: 15px 45px 15px 45px;
+    }
+
+        .Name #FName::placeholder, .Name #LName::placeholder {
+            text-align: center;
+            color: white;
+            opacity: 0.7;
+        }
+
+
+
+
+
+.RegisterContainer .InputBox {
+    width: 100%;
+    position: relative;
+    height: 50px;
+    margin: 30px 0;
+    border: none;
+}
+
+
+    .RegisterContainer .InputBox #Username, .RegisterContainer .InputBox #Password {
+        width: 80%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        border-radius: 0px;
+        /*border: 2px solid RGBA(187,238,255, 0.2);*/
+        border-bottom: 2px solid white;
+        color: white;
+        font-size: 16px;
+        /* top, right, bottom, left*/
+        padding: 15px 45px 15px 45px;
+    }
+
+        .RegisterContainer .InputBox #Username::placeholder, .RegisterContainer .InputBox #Password::placeholder {
+            color: white;
+            opacity: 0.7;
+        }
+
+
+
+    .RegisterContainer .InputBox i {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        /* align horizentally */
+        transform: translateY(-50%);
+        margin-left: 40px;
+        font-size: 20PX;
+        color: white;
+    }
+
+
+
+
+
+.RegisterContainer .GenNBD {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    margin: 0px;
+    gap: 60px;
+}
+
+    .RegisterContainer .GenNBD #Gender {
+        width: 30%;
+        background: transparent;
+        border: none;
+        outline: none;
+        /*border: 2px solid RGBA(187,238,255, 0.2);*/
+        border: 2px solid white;
+        border-radius: 40px;
+        color: white;
+        font-size: 16px;
+        /* top, right, bottom, left*/
+        /*padding: 15px 100px 15px 0px;*/
+        text-align: center;
+        opacity: 0.7;
+    }
+
+
+    .RegisterContainer .GenNBD #DateTitle {
+        width: 50%;
+        background: transparent;
+        border: none;
+        outline: none;
+        /*border: 2px solid RGBA(187,238,255, 0.2);*/
+        color: white;
+        font-size: 16px;
+        /* top, right, bottom, left*/
+        padding: 10px 60px 15px 0px;
+    }
+
+.DatePicker {
+    display: flex;
+    gap: 20px;
+    align-content: center;
+    justify-content: left;
+    margin: 0px 50px;
+}
+
+.DateField {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.InputGroup {
+    display: flex;
+    align-items: center;
+}
+
+    .InputGroup input {
+        width: 50px;
+        text-align: center;
+        font-size: 16px;
+        margin: 0 5px;
+    }
+
+.Arrow {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.ArrowUp {
+    border-radius: 5px 5px 0 0;
+}
+
+.ArrowDown {
+    border-radius: 0 0 5px 5px;
+}
+
+
+
+
+.Phone {
+    display: flex;
+    padding: 0px;
+    width: 100%;
+    margin: 30px 0px;
+}
+
+
+.RegisterContainer .Country {
+    width: 40%;
+    position: relative;
+    height: 50px;
+    margin: 30px 0px;
+}
+
+
+    .RegisterContainer .Country #CountryDDL {
+        width: 60%;
+        background: transparent;
+        border: none;
+        outline: none;
+        border: 2px solid white;
+        border-radius: 40px;
+        color: white;
+        font-size: 16px;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        opacity: 0.7;
+    }
+
+
+
+
+
+
+.RegisterContainer .PhoneNumber {
+    position: relative;
+    display: flex;
+    width: 60%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 16px;
+    /* top, right, bottom, left*/
+    padding: 0px;
+    height: 30px;
+    margin: 30px 30px 30px 0px;
+}
+
+    .RegisterContainer .PhoneNumber #CountryCode, .PhoneNumber #Number {
+        background: transparent;
+        border: none;
+    }
+
+
+        .PhoneNumber #CountryCode::placeholder, .PhoneNumber #Number::placeholder {
+            text-align: center;
+            color: white;
+            opacity: 0.7;
+            font-size: 16px;
+        }
+
+
+.PhoneNumber #CountryCode {
+    width: 30%;
+    padding-right: 0px;
+    color: white;
+    opacity: 0.7;
+    font-size: 16px;
+}
+
+.PhoneNumber #Number {
+    width: 70%;
+    margin-right: 30px;
+    color: white;
+    opacity: 0.7;
+}
+
+
+
+
+
+.RegisterContainer .Address {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    margin: 30px;
+}
+
+    .RegisterContainer .Address #txtAddress {
+        width: 100%;
+        height: 30px;
+        background: transparent;
+        border: none;
+        outline: none;
+        border-bottom: 2px solid white;
+        color: white;
+        font-size: 16px;
+        /* top, right, bottom, left*/
+        padding: 15px 35px 20px 0px;
+        margin-right: 60px;
+    }
+
+.Address #txtAddress::placeholder {
+    text-align: center;
+    color: white;
+    opacity: 0.7;
+}
+
+
+
+
+
+.RegisterButton #Submit {
+    width: 50%;
+    height: 45px;
+    background: white;
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: slategray;
+    font-weight: 600;
+}
+
+    .RegisterButton #Submit:hover {
+        color: white;
+        background-color: slategray;
+    }
+
+
+.LoginLink {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+    .LoginLink p a {
+        color: lightskyblue;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+        .LoginLink p a:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**********************************************************************************************************/
+
+
+section {
+    padding: 5% 10%;
+    /*padding: 7% 5% 30% 60%;  (top & bottom) / (left & right) */
+}
+
+.MainHome {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('/Images/R.jpg');
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+}
+
+.MainText h1 {
+    color: white;
+    font-size: 50px;
+    text-transform: capitalize;
+    line-height: 1.1;
+    font-weight: 400;
+    margin: 6px 0 10px;
+}
+
+.MainText p {
+    color: white;
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.ScrollButton {
+    display: inline-block;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    border: 2px solid white;
+    padding: 12px 25px;
+    transition: all .30s ease;
+    margin-left: 5%;
+}
+
+    .ScrollButton:hover {
+        color: red;
+        border-color: red;
+        transition: all .30s ease;
+    }
+
+    .ScrollButton i {
+        vertical-align: middle;
+    }
+
+
+
+
+
+/*********************************About us*/
+p.parag {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100%;
+    color: #6c7079;
+}
+
+.AboutUs h2 {
+    text-align: center;
+    padding: 20px;
+}
+
+p#AboutUsCotent {
+    background-color: #fffaf3;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+}
+
+/******************************************************/
+#Cats {
+    color: white;
+    padding: 0;
+    position: relative;
+}
+
+.CenterText h2 {
+    padding-top: 100px;
+    padding-bottom: 20px;
+    /*font-weight:300;*/
+    color: #e03e3e;
+    text-align: center; /* Horizontal centering */
+    font-style: italic;
+    /*background-color: darkgrey;*/
+}
+
+
+
+/*
+.CategoryContainer {
+    margin-top:70px;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to the next line *
+    justify-content: space-around; /* Distribute space evenly between items *
+    gap: 40px;
+    
+}
+
+
+
+.Category {
+    flex-basis: calc(33.33% - 40px); /* 3 items per row, accounting for gaps *
+    max-width: calc(33.33% - 40px); /* Ensuring that each item has a maximum width *
+    /*flex-basis: 300px*
+    padding: 3px;
+    border-radius: 8px;
+    background: transparent;
+    border: 2px solid white;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px grey;
+    background-color: #d3c6b5;
+}*/
+
+
+
+.Slick-list {
+    position: relative;
+    /* the following padding is for the prev button */
+    padding-left: 4%;
+    display: flex;
+    /*background-color: #e7dfd4;*/
+    align-items: center;
+    overflow: visible;
+    z-index: 1;
+}
+
+    .Slick-list .slick-slide {
+        display: flex;
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+        overflow: visible;
+        position: relative;
+        z-index: 1000;
+        /*height: 300px;
+        width: 400px;*/
+    }
+
+
+    .Slick-list::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        /*height: 50%;*/
+        height: 100%;
+        /*background-color: darkgrey;*/
+        background-color: #fffaf3
+    }
+
+
+
+    .Slick-list img {
+        width: 200px; /*Responsive image Maintain aspect ratio*/
+        height: 200px;
+    }
+
+
+
+/*.CatItem:hover img {
+    transform: scale(1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    margin-top: 0;
+    margin-bottom: 0px;
+    filter: blur(10px);
+}*/
+
+.CatItem:hover img {
+    /*filter: blur(10px);*/
+    /*transform: scale(1.02);*/
+    object-fit: cover;
+    transition: all 0.3s ease;
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+
+
+
+/*.Catnmnm:hover {
+    background-color: aqua;
+    transform: translate(-70%, 200%);
+}*/
+
+
+
+
+.CatItemLinkButton {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+/*.CatItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    
+}*/
+
+
+.CatItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    justify-content: center;
+}
+
+
+.Catnmnm {
+    top: 0%;
+    left: 40%;
+    transform: translate(-70%, 140%);
+    position: absolute;
+    /* top: 10px;
+    left: 10px;*/
+    /*background-color: #e03e3e;*/
+    background: linear-gradient(to Top,#7f1d1d, #dc2626);
+    width: 100px;
+    height: auto;
+    padding: 5px 15px;
+    z-index: 20;
+    color: white;
+    text-align: center;
+    font: bold;
+}
+
+
+    .Catnmnm::before {
+        content: "";
+        border-width: 0 10px 10px 0;
+        border-style: solid;
+        position: absolute;
+        top: 10%;
+        left: 0%;
+        transform: translate(-100%, -19%);
+        /*color: #B56727;*/
+        color: darkred;
+        height: 0px;
+        clip-path: polygon(100% 0%, 200% 0%, 105% 100%, 0% 100%);
+    }
+
+    .Catnmnm::after {
+        content: "";
+        border-width: 0 10px 10px 0;
+        border-style: solid;
+        position: absolute;
+        top: 10%;
+        left: 0%;
+        transform: translate(1040%, -25%);
+        /*color: #B56727;*/
+        color: darkred;
+        height: 1px;
+        clip-path: polygon(0% 0%, 0% 0%, 105% 100%, 0% 100%);
+    }
+
+
+
+/*.txtSlick {
+    color: darkgrey;
+    text-align: center;
+    bottom: 2%;*/
+/*color: red;*/
+/*font-size: 18px;
+    font-weight: 400;
+    opacity: 1;
+}*/
+
+
+
+.txtSlick {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*background-color: #e03e3e; */
+    background: linear-gradient(to Top,#7f1d1d, #dc2626);
+    color: white;
+    padding: 20px;
+    /*border-radius: 10px;*/
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 60%;
+    height: 50px;
+}
+
+.CatItem:hover .txtSlick {
+    /*border-bottom: 2px solid red;*/
+    color: white;
+}
+
+
+
+.slick-prev:before, .slick-next:before {
+    font-size: 30px;
+    color: #e03e3e;
+}
+
+.slick-prev {
+    left: 2%;
+    opacity: 1;
+}
+
+.slick-next {
+    right: 2%;
+    opacity: 1;
+}
+
+
+.CatItemLinkButton {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*.Slick-list img:hover {
+            transform: scale(1.2);
+            transition: all 0.3s ease;
+           
+            z-index: 1000;
+            margin-top: 0;
+            margin-bottom: 0px;
+        }*/
+/*.Slick-list h5 {
+        color: red;
+        font-size: 20px;
+        font-weight: 500;
+        padding: 15px 10px;
+    }*/
+
+
+
+
+
+/*******************************Our Services*****************************/
+
+.Services {
+    /*display: flex;*/
+    flex-direction: column;
+    gap: 60px; /* Space between each service */
+    padding: 20px; /* Optional: add padding around the section */
+    background-color: #fffaf3;
+    text-align: center;
+    padding-bottom: 20px;
+
+}
+
+.OurServices {
+    max-width: 800px; /* Optional: limit the width of the service section */
+    margin: auto; /* Center the section */
+    text-align:center;
+}
+
+.Shipping, .ProdQuality, .Cultures {
+    margin: 20px;
+    display: flex;
+    align-items: center; 
+    width: 1000px;
+}
+
+.ServiceIcon img{
+    width: 250px; /* Set a width for the icon */
+    height: 250px; /* Set a height for the icon */
+    margin-right: 120px; /* Space between icon and text */
+}
+
+.ServiceDesc {
+    font-size: 16px;
+    line-height: 1.4em;
+    max-width: 505px;
+    margin-right: 120px;
+    /*flex-grow: 1;*/ /* Allow description to take remaining space */
+    text-align: justify;
+}
+
+h3 {
+    font-family: owners, sans-serif;
+    font-weight: 700;
+    line-height: 1em;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+    color: #e03e3e;
+    margin: 20px;
+    text-align: center;
+}
+
+p {
+    margin: 0; /* Remove default margin for paragraph */
+}
+
+/*.ServiceIcon {
+    width: 50px;*/ /* Set a width for the icon */
+    /*height: 50px;*/ /* Set a height for the icon */
+    /*margin-right: 15px;*/ /* Space between icon and text */
+/*}
+
+    .ServiceIcon img {
+        width: 100%;*/ /* Make the image responsive */
+        /*height: auto;*/ /* Maintain aspect ratio */
+    /*}*/
+
+
+    
+
+.ServiceIcon,
+.ServiceDesc {
+    opacity: 0; /* Start as invisible */
+    transform: translateX(100%); /* Start from the right for ServiceDesc */
+}
+
+    .ServiceIcon.visible {
+        opacity: 1; /* Become visible */
+        transform: translateX(0); /* Slide in */
+        animation: slideInLeft 0.5s ease forwards; /* Optional: add animation */
+    }
+
+    .ServiceDesc.visible {
+        opacity: 1; /* Become visible */
+        transform: translateX(0); /* Slide in */
+        animation: slideInRight 0.5s ease forwards; /* Optional: add animation */
+    }
+
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/****************Products*************/
+
+#Prods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Spacing between products */
+    justify-content: center; /* Align items to the left */
+    padding: 20px;
+    /*background-color: #e7dfd4; /* Light grey background */
+    margin-top: 60px;
+}
+
+
+.ProdWrapper {
+    position: relative;
+    height: 450px;
+}
+
+
+.ProdCatTag {
+    top: 78%;
+    left: 30%;
+    transform: translate(-50%, -33%);
+    position: absolute;
+    /* top: 10px;
+        left: 10px;*/
+    background: linear-gradient(to Top,#7f1d1d, #dc2626);
+    width: 100px;
+    height: auto;
+    padding: 5px 15px;
+    z-index: 20;
+    color: white;
+    text-align: center;
+    font: bold;
+}
+
+    .ProdCatTag::before {
+        content: "";
+        border-width: 0 10px 10px 0;
+        border-style: solid;
+        position: absolute;
+        top: 10%;
+        left: 0%;
+        transform: translate(-100%, -19%);
+        /*color: #B56727;*/
+        color: darkred;
+        height: 0px;
+        clip-path: polygon(100% 0%, 200% 0%, 105% 100%, 0% 100%);
+    }
+
+    .ProdCatTag::after {
+        content: "";
+        border-width: 0 10px 10px 0;
+        border-style: solid;
+        position: absolute;
+        top: 10%;
+        left: 0%;
+        transform: translate(1040%, -25%);
+        /*color: #B56727;*/
+        color: darkred;
+        height: 1px;
+        clip-path: polygon(0% 0%, 0% 0%, 105% 100%, 0% 100%);
+    }
+
+
+
+
+.ProdCard {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    gap: 10px;
+}
+
+.ProdBackImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+}
+
+    .ProdBackImage img {
+        width: 100%;
+        height: auto;
+    }
+/*
+.Discount {
+    position: absolute;
+    display: flex;
+    top: 20%;
+    left: 50%;
+    color: white;
+    background: linear-gradient(to Top,#7f1d1d, #dc2626);
+    background-color: #e03e3e;
+    width: 110px;
+    padding-left: 10px;
+    height: 20px;
+    text-align: center;
+    
+}*/
+
+
+.lblDiscount {
+    font-size: 20px;
+    position: absolute;
+    top: 30px;
+    right: 70px;
+    color: #fff;
+    text-shadow: 2px 2px 8px #888;
+    font-weight: bold;
+}
+
+.valDiscount {
+    font-size: 18px;
+    position: absolute;
+    top: 65px;
+    right: 80px;
+    color: #fff;
+    text-shadow: 2px 2px 8px #888;
+    background-color: #E72419;
+    padding: 0 7px;
+    font-weight: bold;
+}
+
+.ProdInfo {
+    padding: 5px;
+    position: absolute;
+    top: 100%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    text-align: center;
+    width: 250px;
+    height: 130px;
+}
+
+
+/*.ProdCard {*/
+/*backdrop-filter: blur(20px); if i want a transparent background*/
+/*background-color: white;*/
+/*border-radius: 10px;*/
+/*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+/*overflow: hidden;
+    width: 300px;
+    text-align: center;*/
+/*padding: 15px;*/
+/*transition: transform 0.3s ease;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding-bottom: 8px;
+}*/
+
+
+
+
+/* Image styling */
+/*.ProdCard img {
+        width: 100%;
+        height: 210px;*/
+/*height: auto; /* Maintain aspect ratio */
+/*border-bottom: 1px solid #ddd;*/ /* Separator line below image */
+/*margin-bottom: 15px;*/
+/*border-radius: 20px;*/
+/*}*/
+
+
+.ProdName {
+    font-size: 1.2em;
+    color: #e03e3e;
+    margin: 10px 0;
+    margin-top: 20px;
+}
+
+
+.ProdCat {
+    font-size: 1.2em;
+    color: red;
+    margin: 10px 0;
+}
+
+
+
+.price {
+    display: flex;
+    font-size: 1.1em;
+    gap: 10px;
+    justify-content: center;
+}
+
+    .price .OldPrice {
+        color: grey;
+        text-decoration: line-through;
+    }
+
+    .price .Discount {
+        color: red;
+    }
+
+
+.ProdOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 130px;
+    background: rgba(0, 0, 0, 0.5);
+    /* it should be under the checkout container*/
+    z-index: 1000;
+    visibility: hidden;
+}
+
+.ProdInfo:hover .ProdOverlay{
+    display: block;
+    visibility: visible;
+}
+
+.ProdInfo:hover .AddToCartBtn {
+    display: block;
+    visibility: visible;
+    transition: all .42s ease;
+}
+
+.ProdInfo:hover .DisabledAddToCartBtn {
+    display: block;
+    visibility: visible;
+    transition: all .42s ease;
+}
+
+
+
+.AddToCartBtn {
+    position: fixed;
+    display: none;
+    visibility: hidden;
+    text-align:center;
+    /*margin-top: 20px;*/
+    left:30%;
+    top: 40%;
+    color: white;
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+    background-color: #e03e3e;
+    border-radius: 5px;
+    z-index:10000;
+}
+
+
+    .AddToCartBtn:hover {
+        color: #e03e3e;
+        background-color: #fffaf3;
+    }
+
+
+.DisabledAddToCartBtn {
+    position: absolute;
+    display: none;
+    visibility:hidden;
+    text-align: center;
+    justify-content: center;
+    left: 30%;
+    top: 40%;
+    color: grey;
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+    background-color: lightgray;
+    border-radius: 5px;
+    z-index: 10000;
+}
+    .DisabledAddToCartBtn:hover {
+        color: #e03e3e;
+        background-color: #fffaf3;
+    }
+
+
+
+
+#RandProds {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Spacing between products */
+    justify-content: center; /* Align items to the left */
+    padding: 20px;
+    /*background-color: #e7dfd4; /* Light grey background */
+}
+
+/****************************************** Footer  **********************************/
+.ContactInfo {
+    width: 100%;
+    height: 150px;
+    color: white;
+    /*background-color: red;*/
+    background: linear-gradient(to Top,#7f1d1d, #dc2626);
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+    .ContactInfo a {
+        font-size: 25px;
+    }
+
+        .ContactInfo a:hover {
+            transform: scale(1.05);
+        }

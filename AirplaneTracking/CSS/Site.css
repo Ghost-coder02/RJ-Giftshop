@@ -1,0 +1,12 @@
+﻿#sidebar {
+    background-color: #f8f9fa;
+}
+
+    #sidebar .nav-link {
+        font-size: 1.1em;
+    }
+
+        #sidebar .nav-link.active {
+            font-weight: bold;
+            color: #007bff;
+        }

@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AD.master.cs" Inherits="AirplaneTracking.Admin.Layout.Shared.AD" %>
+
+<!-- to register user controls so i can use their tags -->
+<!-- prefix: define the prefix of a custom tag -->
+<%@ Register TagPrefix="uc1" TagName="Header" Src="~/Admin/Layout/Shared/Header.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="Sidebar" Src="~/Admin/Layout/Shared/Sidebar.ascx" %>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>RJ Shop Management</title>
+
+
+    <link href="CSS/Shared.css" rel="stylesheet" />
+
+    <!-- A "ContentPlaceHolder" that can be defined in pages using this master page.
+        This allows pages to insert additional content into the head section. -->
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+
+
+<body>
+    <form id="form2" runat="server">
+        <div class="container-fluid">
+            <header>
+                <uc1:Header runat="server" id="HeaderControl" />
+            </header>
+
+
+            <div class="row">
+                <aside class="col-md-3">
+                    <uc1:Sidebar runat="server" id="SidebarControl" />
+                </aside>
+                <main class="col-md-9" style=" padding-top: 60px; padding-left: 100px;">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+                </main>
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>
+
+
+
